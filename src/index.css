@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8fafc;
+}
+
+
+* {
+  transition: background-color 0.2s, border-color 0.2s;
+}
