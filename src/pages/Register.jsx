@@ -3,7 +3,7 @@ import { FaUser, FaEnvelope, FaLock, FaBuilding } from 'react-icons/fa';
 
 const Register = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-100 flex items-center justify-center p-4">
+    <div className="min-h-screen  flex items-center justify-center p-4 mr-[250px]">
       <div className="max-w-2xl w-full">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           
