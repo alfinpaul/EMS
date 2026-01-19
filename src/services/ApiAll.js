@@ -1,4 +1,3 @@
-
 import commonAPI from "./CommonApi";
 import { ServerUrl } from "./ServerUrl";
 
@@ -6,37 +5,53 @@ import { ServerUrl } from "./ServerUrl";
 
 // LOGIN
 export const loginAPI = async (reqBody) => {
-  return await commonAPI("POST", `${ServerUrl}/users/login`, reqBody);
+  try {
+    const response = await commonAPI("POST", `${ServerUrl}/users/login`, reqBody);
+    return {
+      success: true,
+      data: response.data,
+      message: "Login successful"
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "Login failed",
+      data: null
+    };
+  }
 };
 
 // REGISTER
 export const registerAPI = async (reqBody) => {
-  return await commonAPI("POST", `${ServerUrl}/users/register`, reqBody);
+  try {
+    const response = await commonAPI("POST", `${ServerUrl}/users/register`, reqBody);
+    return {
+      success: true,
+      data: response.data,
+      message: "Registration successful"
+    };
+  } catch (error) {
+    return {
+      success: false,
+      message: error.response?.data?.message || "Registration failed",
+      data: null
+    };
+  }
 };
 
-/* ===================== EMPLOYEES ===================== */
-
-// GET ALL EMPLOYEES
+// Rest of your employee APIs remain the same...
 export const getEmployeesAPI = async () => {
   return await commonAPI("GET", `${ServerUrl}/employees`);
 };
 
-// GET SINGLE EMPLOYEE
-export const getEmployeeAPI = async (id) => {
-  return await commonAPI("GET", `${ServerUrl}/employees/${id}`);
-};
-
-// ADD EMPLOYEE
 export const addEmployeeAPI = async (reqBody) => {
   return await commonAPI("POST", `${ServerUrl}/employees`, reqBody);
 };
 
-// UPDATE EMPLOYEE
 export const updateEmployeeAPI = async (id, reqBody) => {
   return await commonAPI("PUT", `${ServerUrl}/employees/${id}`, reqBody);
 };
 
-// DELETE EMPLOYEE
 export const deleteEmployeeAPI = async (id) => {
   return await commonAPI("DELETE", `${ServerUrl}/employees/${id}`);
 };
