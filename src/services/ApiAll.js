@@ -39,7 +39,7 @@ export const registerAPI = async (reqBody) => {
   }
 };
 
-// Rest of your employee APIs remain the same...
+
 export const getEmployeesAPI = async () => {
   return await commonAPI("GET", `${ServerUrl}/employees`);
 };
