@@ -6,8 +6,17 @@ const Navigation = ({ onLogout }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    onLogout();
-    navigate('/login');
+    // If you have a logout function prop, call it
+    if (onLogout) {
+      onLogout();
+    }
+    
+    // Navigate to landing page
+    navigate('/');
+    
+    // Optional: Clear any user data from localStorage/sessionStorage
+    // localStorage.removeItem('token');
+    // localStorage.removeItem('user');
   };
 
   return (
@@ -25,7 +34,7 @@ const Navigation = ({ onLogout }) => {
           </div>
           <button
             onClick={handleLogout}
-            className="flex items-center bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200"
+            className="flex items-center bg-red-100 text-red-600 px-4 py-2 rounded-lg hover:bg-red-200 transition-colors duration-200"
           >
             <FaSignOutAlt className="mr-2" />
             Logout
